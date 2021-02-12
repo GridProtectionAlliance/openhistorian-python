@@ -1,0 +1,13 @@
+Note: run these steps from root source directory (where setup.crfg is located).
+
+Make sure README.md exists, if note:
+    run CreateReadMeSymLink.cmd to create symbolic link to docs/README.md markdown
+
+Build Distribution: 
+    python -m build
+
+Validate Distribution:
+    twine check dist/*
+
+Upload to PiPy:
+    twine upload dist/*
