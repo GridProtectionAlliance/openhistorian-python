@@ -1,5 +1,5 @@
 theme: jekyll-theme-cayman
-title: openhistorian-python
+title: openHistorian API for Python
 description: openHistorian Python API
 github:
   repository_name: openhistorian-python
