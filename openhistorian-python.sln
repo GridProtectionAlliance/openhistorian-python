@@ -1,0 +1,23 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31005.135
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{888888A0-9F3D-457C-B088-3A5042F75D52}") = "openhistorian-python", "openhistorian-python.pyproj", "{D61BBB31-74A7-498D-8C36-FB18C72609F8}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D61BBB31-74A7-498D-8C36-FB18C72609F8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D61BBB31-74A7-498D-8C36-FB18C72609F8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {DA12806B-B190-4136-9EF2-7601716CB0EE}
+	EndGlobalSection
+EndGlobal

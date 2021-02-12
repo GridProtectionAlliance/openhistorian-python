@@ -1,0 +1,105 @@
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>d61bbb31-74a7-498d-8c36-fb18c72609f8</ProjectGuid>
+    <ProjectHome>.</ProjectHome>
+    <SearchPath>
+    </SearchPath>
+    <WorkingDirectory>.</WorkingDirectory>
+    <OutputPath>.</OutputPath>
+    <Name>openhistorian-python</Name>
+    <RootNamespace>openhistorian</RootNamespace>
+    <InterpreterId>MSBuild|env|$(MSBuildProjectFullPath)</InterpreterId>
+    <TestFramework>Pytest</TestFramework>
+    <StartupFile>tests\main.py</StartupFile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+    <DebugSymbols>true</DebugSymbols>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+    <DebugSymbols>true</DebugSymbols>
+    <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
+  </PropertyGroup>
+  <ItemGroup>
+    <Folder Include="docs\" />
+    <Folder Include="docs\_includes\" />
+    <Folder Include="docs\_layouts\" />
+    <Folder Include="src\" />
+    <Folder Include="src\gsf\" />
+    <Folder Include="src\openHistorian\" />
+    <Folder Include="src\snapDB\" />
+    <Folder Include="tests\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include=".gitignore" />
+    <Content Include="docs\index.md" />
+    <Content Include="docs\README.md" />
+    <Content Include="docs\SECURITY.md" />
+    <Content Include="docs\_config.yml" />
+    <Content Include="docs\_includes\anchor_headings.html" />
+    <Content Include="docs\_layouts\default.html" />
+    <Content Include="LICENSE" />
+    <Content Include="pyproject.toml" />
+    <Content Include="requirements.txt" />
+    <Content Include="setup.cfg" />
+    <Content Include="src\gsf\README.md" />
+    <Content Include="src\openHistorian\README.md" />
+    <Content Include="src\snapDB\README.md" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="src\gsf\binaryStream.py" />
+    <Compile Include="src\gsf\encoding7Bit.py" />
+    <Compile Include="src\gsf\streamEncoder.py" />
+    <Compile Include="src\gsf\__init__.py" />
+    <Compile Include="src\openHistorian\deviceRecord.py" />
+    <Compile Include="src\openHistorian\historianConnection.py" />
+    <Compile Include="src\openHistorian\historianInstance.py" />
+    <Compile Include="src\openHistorian\historianKey.py" />
+    <Compile Include="src\openHistorian\historianKeyValueEncoder.py" />
+    <Compile Include="src\openHistorian\historianValue.py" />
+    <Compile Include="src\openHistorian\measurementRecord.py" />
+    <Compile Include="src\openHistorian\metadataCache.py" />
+    <Compile Include="src\openHistorian\phasorRecord.py" />
+    <Compile Include="src\openHistorian\__init__.py" />
+    <Compile Include="src\snapDB\databaseInfo.py" />
+    <Compile Include="src\snapDB\encodingDefinition.py" />
+    <Compile Include="src\snapDB\enumerations.py" />
+    <Compile Include="src\snapDB\fixedSizeKeyValueEncoder.py" />
+    <Compile Include="src\snapDB\keyValueEncoderBase.py" />
+    <Compile Include="src\snapDB\library.py" />
+    <Compile Include="src\snapDB\matchFilterBase.py" />
+    <Compile Include="src\snapDB\pointIDMatchFilter.py" />
+    <Compile Include="src\snapDB\pointReader.py" />
+    <Compile Include="src\snapDB\readerOptions.py" />
+    <Compile Include="src\snapDB\seekFilterBase.py" />
+    <Compile Include="src\snapDB\snapClientDatabase.py" />
+    <Compile Include="src\snapDB\snapConnection.py" />
+    <Compile Include="src\snapDB\snapTypeBase.py" />
+    <Compile Include="src\snapDB\timestampSeekFilter.py" />
+    <Compile Include="src\snapDB\treeStream.py" />
+    <Compile Include="src\snapDB\__init__.py" />
+    <Compile Include="tests\main.py" />
+  </ItemGroup>
+  <ItemGroup>
+    <Interpreter Include="env\">
+      <Id>env</Id>
+      <Version>3.9</Version>
+      <Description>env (Python 3.9 (64-bit))</Description>
+      <InterpreterPath>Scripts\python.exe</InterpreterPath>
+      <WindowsInterpreterPath>Scripts\pythonw.exe</WindowsInterpreterPath>
+      <PathEnvironmentVariable>PYTHONPATH</PathEnvironmentVariable>
+      <Architecture>X64</Architecture>
+    </Interpreter>
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
+  <!-- Uncomment the CoreCompile target to enable the Build command in
+       Visual Studio and specify your pre- and post-build commands in
+       the BeforeBuild and AfterBuild targets below. -->
+  <!--<Target Name="CoreCompile" />-->
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+</Project>
