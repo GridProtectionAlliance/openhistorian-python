@@ -12,7 +12,7 @@
     <RootNamespace>openhistorian</RootNamespace>
     <InterpreterId>MSBuild|env|$(MSBuildProjectFullPath)</InterpreterId>
     <TestFramework>Pytest</TestFramework>
-    <StartupFile>tests\readTest.py</StartupFile>
+    <StartupFile>tests\main.py</StartupFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <DebugSymbols>true</DebugSymbols>

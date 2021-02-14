@@ -44,7 +44,7 @@ def writeTest():
         print("Connecting to openHistorian...")
         historian.Connect()    
 
-        if historian.IsConnected and len(historian.InstanceNames) == 0:
+        if not historian.IsConnected or len(historian.InstanceNames) == 0:
             print("No openHistorian instances detected!")
         else:
             # Get first historian instance

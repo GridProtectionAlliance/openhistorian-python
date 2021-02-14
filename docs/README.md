@@ -3,7 +3,7 @@
 
 The openHistorian Python API is used for high-speed reading and writing of time-series data with the openHistorian.
 
-The openHistorian is a back office system designed to efficiently integrate and archive process control data, e.g., SCADA, synchrophasor, digital fault recorder or any other time-series data used to support process operations. The openHistorian is optimized to store and retrieve large volumes of time-series data quickly and efficiently, including high-resolution sub-second information that is measured very rapidly, e.g., many thousands of times per second.
+The openHistorian is an open source system designed to efficiently integrate and archive process control data, e.g., SCADA, synchrophasor, digital fault recorder or any other time-series data used to support process operations. The openHistorian is optimized to store and retrieve large volumes of time-series data quickly and efficiently, including high-resolution sub-second information that is measured very rapidly, e.g., many thousands of times per second. See [2-page pdf flyer](https://gridprotectionalliance.org/docs/products/openhistorian/OpenHistorian2018.pdf).
 
 # Overview
 The openHistorian 2 is built using the [SNAPdb Engine](http://www.gridprotectionalliance.org/technology.asp#SnapDB) - a key/value pair archiving technology. SNAPdb was developed to significantly improve the ability to handle extremely large volumes of real-time streaming data and directly serve the data to consuming applications and systems. See the Python API implementation of [SNAPdb](https://github.com/GridProtectionAlliance/openhistorian-python/tree/main/src/snapDB).
@@ -13,12 +13,12 @@ Through use of the [SNAPdb Engine](http://www.gridprotectionalliance.org/technol
 The Python API for openHistorian is designed as a socket-based, high-speed API that interacts directly with the openHistorian in-memory cache for very high speed extraction of near real-time data. The archive files produced by the openHistorian are [ACID Compliant](https://en.wikipedia.org/wiki/ACID) which create a very durable and consistent file structure that is resistant to data corruption. Internally the data structure is based on a [B+ Tree](https://en.wikipedia.org/wiki/B%2B_tree) that allows out-of-order data insertion.
 
 ## Example Usage
-Full source for the following two examples can be found here:
+Full source for the following two usage examples can be found here:
 * Reading Data ([readTest.py](https://github.com/GridProtectionAlliance/openhistorian-python/blob/main/tests/readTest.py))
 * Writing Data ([writeTest.py](https://github.com/GridProtectionAlliance/openhistorian-python/blob/main/tests/writeTest.py))
 
 ### Reading Data
-The following example shows how to establish a connection to the openHistorian, open a client database instance, refresh available metadata, filter metadata to desired set of signal types, establish a start and stop time for the read, then read each time-series values a historian [key](https://github.com/GridProtectionAlliance/openhistorian-python/tree/main/src/openHistorian/historianKey.py) / [value](https://github.com/GridProtectionAlliance/openhistorian-python/tree/main/src/openHistorian/historianValue.py) pair.
+The following example shows how to establish a connection to the openHistorian, open a client database instance, refresh available metadata, filter metadata to desired set of signal types, establish a start and stop time for the read, then read each time-series values as a historian [key](https://github.com/GridProtectionAlliance/openhistorian-python/tree/main/src/openHistorian/historianKey.py) / [value](https://github.com/GridProtectionAlliance/openhistorian-python/tree/main/src/openHistorian/historianValue.py) pair.
 
 ```python
 from openHistorian.historianConnection import historianConnection
@@ -43,7 +43,7 @@ def readTest():
         print("Connecting to openHistorian...")
         historian.Connect()
 
-        if historian.IsConnected and len(historian.InstanceNames) == 0:
+        if not historian.IsConnected or len(historian.InstanceNames) == 0:
             print("No openHistorian instances detected!")
         else:
             # Get first historian instance
@@ -58,7 +58,6 @@ def readTest():
 
             # Lookup measurements that represent frequency values
             records = metadata.GetMeasurementsBySignalType(SignalType.FREQ, instance.Name)
-
             recordCount = len(records)
 
             print(f"Queried {recordCount:,} metadata records associated with \"{instance.Name}\" database instance.")
@@ -127,7 +126,7 @@ def writeTest():
         print("Connecting to openHistorian...")
         historian.Connect()    
 
-        if historian.IsConnected and len(historian.InstanceNames) == 0:
+        if not historian.IsConnected or len(historian.InstanceNames) == 0:
             print("No openHistorian instances detected!")
         else:
             # Get first historian instance

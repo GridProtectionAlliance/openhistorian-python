@@ -47,7 +47,7 @@ def readTest():
         print("Connecting to openHistorian...")
         historian.Connect()
 
-        if historian.IsConnected and len(historian.InstanceNames) == 0:
+        if not historian.IsConnected or len(historian.InstanceNames) == 0:
             print("No openHistorian instances detected!")
         else:
             # Get first historian instance
@@ -62,7 +62,6 @@ def readTest():
 
             # Lookup measurements that represent frequency values
             records = metadata.GetMeasurementsBySignalType(SignalType.FREQ, instance.Name)
-    
             recordCount = len(records)
 
             print(f"Queried {recordCount:,} metadata records associated with \"{instance.Name}\" database instance.")
