@@ -1,4 +1,4 @@
-![Logo](https://www.gridprotectionalliance.org/images/products/Producttitles75/snap.png)
+![Logo](../../docs/img/LockPython_64High.png)![Banner](https://www.gridprotectionalliance.org/images/products/Producttitles75/snap.png)
 
 # Python Implementation of the SNAPdb Engine
 

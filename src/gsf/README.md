@@ -1,4 +1,4 @@
-![GSF](https://gridprotectionalliance.org/images/products/ProductTitles75/GSF.png)
+![Logo](../../docs/img/LockPython_64High.png)![GSF](https://gridprotectionalliance.org/images/products/ProductTitles75/GSF.png)
 
 # Python Implementation of the Grid Solutions Framework
 
