@@ -1,7 +1,14 @@
-Note: run these steps from root source directory (where setup.crfg is located).
+Note: run these steps from root source directory (where setup.cfg is located).
 
-Make sure README.md exists, if note:
-    run CreateReadMeSymLink.cmd to create symbolic link to docs/README.md markdown
+Make sure root-level README.md exists, if not:
+    Run CreateReadMeSymLink.cmd to create symbolic link to docs/README.md markdown.
+    The .gitignore file ensures that this file will not be checked in since the one
+    in the "docs" folder is considered the primary source. Note that if the root
+    folder README.md is manually updated, its link relationship will be broken, in
+    this case delete README.md in the root and run CreateReadMeSymLink.cmd again.
+
+For updates, always increment version number in:
+    setup.cfg
 
 Build Distribution: 
     python -m build
