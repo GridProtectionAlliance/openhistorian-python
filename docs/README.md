@@ -1,4 +1,5 @@
-![Logo](img/PythonAPI_75.png)
+<!--- Do not make this image location relative, README.md in root is a symbolic reference to one in docs. See CreateReadMeSymLink.cmd for more information. --->
+![Logo](https://raw.githubusercontent.com/GridProtectionAlliance/openhistorian-python/main/docs/img/PythonAPI_75.png)
 
 The openHistorian Python API is used for high-speed reading and writing of time-series data with the openHistorian.
 
