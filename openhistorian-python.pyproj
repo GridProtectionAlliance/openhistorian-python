@@ -12,7 +12,7 @@
     <RootNamespace>openhistorian</RootNamespace>
     <InterpreterId>MSBuild|env|$(MSBuildProjectFullPath)</InterpreterId>
     <TestFramework>Pytest</TestFramework>
-    <StartupFile>tests\main.py</StartupFile>
+    <StartupFile>tests\readTest.py</StartupFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
     <DebugSymbols>true</DebugSymbols>
@@ -24,6 +24,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Folder Include="docs\" />
+    <Folder Include="docs\img\" />
     <Folder Include="docs\_includes\" />
     <Folder Include="docs\_layouts\" />
     <Folder Include="src\" />
@@ -34,7 +35,14 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include=".gitignore" />
-    <Content Include="docs\index.md" />
+    <Content Include="CreateReadMeSymLink.cmd" />
+    <Content Include="docs\BuildSteps.txt" />
+    <Content Include="docs\img\LockPython_400High.png" />
+    <Content Include="docs\img\LockPython_64High.png" />
+    <Content Include="docs\img\OHPythonAPI_icon32.png" />
+    <Content Include="docs\img\OHPythonAPI_icon64.png" />
+    <Content Include="docs\img\PythonAPI_32.png" />
+    <Content Include="docs\img\PythonAPI_75.png" />
     <Content Include="docs\README.md" />
     <Content Include="docs\SECURITY.md" />
     <Content Include="docs\_config.yml" />
@@ -80,6 +88,8 @@
     <Compile Include="src\snapDB\timestampSeekFilter.py" />
     <Compile Include="src\snapDB\treeStream.py" />
     <Compile Include="src\snapDB\__init__.py" />
+    <Compile Include="tests\writeTest.py" />
+    <Compile Include="tests\readTest.py" />
     <Compile Include="tests\main.py" />
   </ItemGroup>
   <ItemGroup>

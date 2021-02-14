@@ -84,6 +84,12 @@ ipython_config.py
 # Visual Studio
 .vs/
 
+# VS user-specific files
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
 # pyenv
 .python-version
 

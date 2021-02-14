@@ -122,7 +122,7 @@ def main():
     
                 recordCount = len(records)
 
-                print(f"Queried {recordCount:,} metadata records associated with \"{instanceName}\" database instance.")
+                print(f"Queried {recordCount:,} metadata records associated with \"{instance.Name}\" database instance.")
 
                 if recordCount > 0:
                     pointIDList = metadataCache.ToPointIDList(records)
