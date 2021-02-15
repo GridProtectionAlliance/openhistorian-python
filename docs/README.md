@@ -1,6 +1,8 @@
 <!--- Do not make this image location relative, README.md in root is a symbolic reference to one in docs. See CreateReadMeSymLink.cmd for more information. --->
 ![Logo](https://raw.githubusercontent.com/GridProtectionAlliance/openhistorian-python/main/docs/img/PythonAPI_75.png)
 
+![CodeQL](https://github.com/GridProtectionAlliance/openhistorian-python/workflows/CodeQL/badge.svg)
+
 The openHistorian Python API is used for high-speed reading and writing of time-series data with the openHistorian.
 
 The openHistorian is an open source system designed to efficiently integrate and archive process control data, e.g., SCADA, synchrophasor, digital fault recorder or any other time-series data used to support process operations. The openHistorian is optimized to store and retrieve large volumes of time-series data quickly and efficiently, including high-resolution sub-second information that is measured very rapidly, e.g., many thousands of times per second. See [2-page pdf flyer](https://gridprotectionalliance.org/docs/products/openhistorian/OpenHistorian2018.pdf).
