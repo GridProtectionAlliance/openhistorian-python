@@ -399,7 +399,7 @@ class metadataCache:
 
         return list(pointIDs)
 
-    def LookupDeviceByAcronym(self, deviceAcronym: UUID) -> Optional[deviceRecord]:
+    def LookupDeviceByAcronym(self, deviceAcronym: str) -> Optional[deviceRecord]:
         if deviceAcronym in self.deviceAcronymDeviceMap:
             return self.deviceAcronymDeviceMap[deviceAcronym]
 
