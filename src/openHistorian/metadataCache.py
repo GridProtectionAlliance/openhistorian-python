@@ -384,7 +384,7 @@ class metadataCache:
                 records.add(record)
 
         for record in self.measurementRecords:
-            if searchVal in record.Description or searchVal in record.DeviceName:
+            if searchVal in record.Description or searchVal in record.DeviceAcronym:
                 if instanceName is None or record.InstanceName == instanceName:
                     records.add(record)
 
