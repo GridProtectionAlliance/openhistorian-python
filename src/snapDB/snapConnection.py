@@ -47,8 +47,8 @@ class snapConnection(Generic[TKey, TValue]):
         parts = hostAddress.split(":")
         
         if len(parts) > 1:
-            self.hostAddress = part[1].strip()
-            self.port = int(np.uint16(part[2].strip()))
+            self.hostAddress = parts[1].strip()
+            self.port = int(np.uint16(parts[2].strip()))
         else:
             self.hostAddress = hostAddress
             self.port = snapConnection.DefaultPort
@@ -73,7 +73,7 @@ class snapConnection(Generic[TKey, TValue]):
         return f"{self.hostAddress}:{self.port}"
 
     @property
-    def HostEndPoint(self) -> (str, int):
+    def HostEndPoint(self) -> tuple[str, int]:
         """
         Gets SNABdb server end point, e.g., ("127.0.0.1:, "38402").
         """

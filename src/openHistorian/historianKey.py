@@ -129,7 +129,7 @@ class historianKey(snapTypeBase):
             return 1
         return 0
 
-    def TryGetDateTime(self) -> (datetime, bool):
+    def TryGetDateTime(self) -> tuple[datetime, bool]:
         """
         Attempts to get the timestamp field of this key instance.
         """

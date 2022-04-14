@@ -25,7 +25,6 @@ from gsf.binaryStream import binaryStream
 from gsf import Empty
 from typing import Optional
 from uuid import UUID
-import numpy as np
 
 class encodingDefinition:
     """

@@ -208,7 +208,7 @@ class metadataCache:
         return "" if element is None else "" if element.text is None else element.text.strip()
     
     @staticmethod
-    def __getMeasurementKey(elementRoot) -> (str, np.uint64):
+    def __getMeasurementKey(elementRoot) -> tuple[str, np.uint64]:
         elementText = metadataCache.__getElementText(elementRoot, "ID")
         defaultValue = ("_", np.uint64(0))
 

@@ -41,7 +41,7 @@ class encoding7Bit:
         value: 16-bit value to write
         """
 
-        return WriteUInt16(streamWriter, np.frombuffer(int(value).to_bytes(ByteSize.INT16, "little", signed=True), np.uint16)[0])
+        return encoding7Bit.WriteUInt16(streamWriter, np.frombuffer(int(value).to_bytes(ByteSize.INT16, "little", signed=True), np.uint16)[0])
 
     @staticmethod
     def WriteUInt16(streamWriter: Callable[[np.uint8], int], value: np.uint16) -> int:
@@ -77,7 +77,7 @@ class encoding7Bit:
         value: 32-bit value to write
         """
         
-        return WriteUInt32(streamWriter, np.frombuffer(int(value).to_bytes(ByteSize.INT32, "little", signed=True), np.uint32)[0])
+        return encoding7Bit.WriteUInt32(streamWriter, np.frombuffer(int(value).to_bytes(ByteSize.INT32, "little", signed=True), np.uint32)[0])
 
     @staticmethod
     def WriteUInt32(streamWriter: Callable[[np.uint8], int], value: np.uint32) -> int:
@@ -128,7 +128,7 @@ class encoding7Bit:
         value: 64-bit value to write
         """
 
-        return WriteUInt64(streamWriter, np.frombuffer(int(value).to_bytes(ByteSize.INT64, "little", signed=True), np.uint64)[0])
+        return encoding7Bit.WriteUInt64(streamWriter, np.frombuffer(int(value).to_bytes(ByteSize.INT64, "little", signed=True), np.uint64)[0])
 
     @staticmethod
     def WriteUInt64(streamWriter: Callable[[np.uint8], int], value: np.uint64) -> int:
@@ -202,7 +202,7 @@ class encoding7Bit:
         Call expects one to two bytes to be available in base stream.
         """
 
-        return np.frombuffer(int(ReadUInt16(streamReader)).to_bytes(ByteSize.UINT16, "little"), np.int16)[0]
+        return np.frombuffer(int(encoding7Bit.ReadUInt16(streamReader)).to_bytes(ByteSize.UINT16, "little"), np.int16)[0]
 
     @staticmethod
     def ReadUInt16(streamReader: Callable[[], np.uint8]) -> np.uint16:
@@ -244,7 +244,7 @@ class encoding7Bit:
         Call expects one to five bytes to be available in base stream.
         """
 
-        return np.frombuffer(int(ReadUInt32(streamReader)).to_bytes(ByteSize.UINT32, "little"), np.int32)[0]
+        return np.frombuffer(int(encoding7Bit.ReadUInt32(streamReader)).to_bytes(ByteSize.UINT32, "little"), np.int32)[0]
 
     @staticmethod
     def ReadUInt32(streamReader: Callable[[], np.uint8]) -> np.uint32:
@@ -299,7 +299,7 @@ class encoding7Bit:
         Call expects one to nine bytes to be available in base stream.
         """
 
-        return np.frombuffer(int(ReadUInt64(streamReader)).to_bytes(ByteSize.UINT64, "little"), np.int64)[0]
+        return np.frombuffer(int(encoding7Bit.ReadUInt64(streamReader)).to_bytes(ByteSize.UINT64, "little"), np.int64)[0]
 
     @staticmethod
     def ReadUInt64(streamReader: Callable[[], np.uint8]) -> np.uint64:

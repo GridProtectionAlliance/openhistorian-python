@@ -32,11 +32,9 @@ from gsf.binaryStream import binaryStream
 from gsf import override
 from typing import Optional, Callable
 from enum import IntEnum
-from time import time, sleep
-import errno
+from time import time
 import socket
 import gzip
-import numpy as np
 
 class ServerCommand(IntEnum):
     # Meta data refresh command.
@@ -61,7 +59,7 @@ class historianConnection(snapConnection[historianKey, historianValue]):
 
     def __init__(self, hostAddress: str):
         super().__init__(hostAddress, historianKey(), historianValue())
-        self.metadata: Optional[metadata] = None
+        self.metadata: Optional[metadataCache] = None
 
     @override
     def OpenInstance(self, instanceName: str, definition: Optional[encodingDefinition] = None) -> historianInstance:
