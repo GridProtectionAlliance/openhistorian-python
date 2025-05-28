@@ -80,7 +80,7 @@ class Ticks:
     
     @staticmethod
     def ToDateTime(ticks: np.uint64) -> datetime:
-        return Empty.DATETIME + timedelta(microseconds = ticks // 10)
+        return Empty.DATETIME + timedelta(microseconds = int(ticks // 10))
 
 class Validate:
     @staticmethod
