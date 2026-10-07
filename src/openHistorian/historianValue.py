@@ -158,7 +158,7 @@ class historianValue(snapTypeBase):
         """
         Gets `Value3` type cast as `QualityFlags`.
         """
-        return QualityFlags(self.Value3)
+        return QualityFlags(int(self.Value3))
 
     @AsQuality.setter
     def AsQuality(self, value: QualityFlags):

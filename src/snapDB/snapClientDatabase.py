@@ -124,7 +124,7 @@ class snapClientDatabase(Generic[TKey, TValue]):
         A stream that will read the specified data.
         """
 
-        if self.reader is not None and not self.reader.IsDiposed:
+        if self.reader is not None and not self.reader.IsDisposed:
             raise RuntimeError("Concurrent readers are not supported. Dispose old reader.")
 
         self.stream.WriteByte(ServerCommand.READ)
@@ -178,7 +178,7 @@ class snapClientDatabase(Generic[TKey, TValue]):
         Writes all key/value pairs of the tree `stream` to the SNAPdb client database instance.
         """
 
-        if self.reader is not None and not self.reader.IsDiposed:
+        if self.reader is not None and not self.reader.IsDisposed:
             raise RuntimeError("Concurrent writing while reading is not supported. Dispose of active reader before writing.")
         
         self.stream.WriteByte(ServerCommand.WRITE)
@@ -195,7 +195,7 @@ class snapClientDatabase(Generic[TKey, TValue]):
         Writes an individual key/value pair to the SNAPdb client database instance.
         """
 
-        if self.reader is not None and not self.reader.IsDiposed:
+        if self.reader is not None and not self.reader.IsDisposed:
             raise RuntimeError("Concurrent writing while reading is not supported. Dispose of active reader before writing.")
         
         self.stream.WriteByte(ServerCommand.WRITE)

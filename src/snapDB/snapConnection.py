@@ -47,8 +47,8 @@ class snapConnection(Generic[TKey, TValue]):
         parts = hostAddress.split(":")
         
         if len(parts) > 1:
-            self.hostAddress = parts[1].strip()
-            self.port = int(np.uint16(parts[2].strip()))
+            self.hostAddress = parts[0].strip()
+            self.port = int(np.uint16(parts[1].strip()))
         else:
             self.hostAddress = hostAddress
             self.port = snapConnection.DefaultPort

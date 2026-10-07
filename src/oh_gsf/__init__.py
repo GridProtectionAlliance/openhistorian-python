@@ -72,11 +72,12 @@ class ByteSize(IntEnum):
 class Ticks:
     @staticmethod
     def FromDateTime(dt: datetime) -> np.uint64:
-        return np.uint64((dt - Empty.DATETIME).total_seconds() * 10000000)
+        return Ticks.FromTimeDelta(dt - Empty.DATETIME)
 
     @staticmethod
     def FromTimeDelta(td: timedelta) -> np.uint64:
-        return np.uint64(td.total_seconds() * 10000000)
+        # Integer arithmetic: float seconds lose sub-10µs precision at tick scale.
+        return np.uint64((td.days * 86400 + td.seconds) * 10000000 + td.microseconds * 10)
     
     @staticmethod
     def ToDateTime(ticks: np.uint64) -> datetime:

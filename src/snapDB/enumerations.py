@@ -21,7 +21,7 @@
 #
 #******************************************************************************************************
 
-from enum import IntEnum, Flag
+from enum import IntEnum, IntFlag
 
 # Defines needed enumerations for SNAPdb server commands and responses
 
@@ -71,7 +71,7 @@ class AuthenticationMode(IntEnum):
     CERTIFICATE = 5
     RESUMESESSION = 255
 
-class QualityFlags(Flag):
+class QualityFlags(IntFlag):
     # Defines normal state.
     NORMAL = 0
     # Defines bad data state.

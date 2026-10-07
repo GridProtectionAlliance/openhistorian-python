@@ -99,7 +99,7 @@ class phasorRecord:
         """
         Gets the base, i.e., nominal, kV level for this `phasorRecord`.
         """
-        return self.sourceIndex
+        return self.baseKV
 
     @property
     def SourceIndex(self) -> int:  # <PhasorDetail>/<SourceIndex>

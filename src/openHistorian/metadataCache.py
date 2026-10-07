@@ -21,6 +21,7 @@
 #
 #******************************************************************************************************
 
+import re
 from .measurementRecord import measurementRecord, SignalType
 from .deviceRecord import deviceRecord
 from .phasorRecord import phasorRecord
@@ -287,32 +288,30 @@ class metadataCache:
             # parse fractional seconds with 3 or 6 digits. Since in STTP
             # metadata fractional seconds often just have 2 digits, we
             # have to work much harder to make this parse properly.
-            timeZone = None
+            timeZone = ""
 
-            if ":" in elementText:
-                tzParts = elementText.split("-")
-                count = len(tzParts)
+            # Only a trailing "+HH:MM" or "-HH:MM" after the time is a UTC
+            # offset; the date's own "-" separators are not.
+            tzMatch = re.search(r"[+-]\d{2}:\d{2}$", elementText)
 
-                elementText = "-".join(tzParts[:count - 1])
-                timeZone = tzParts[count - 1]
+            if tzMatch is not None and ":" in elementText[:tzMatch.start()]:
+                timeZone = tzMatch.group()
+                elementText = elementText[:tzMatch.start()]
 
             fsParts = elementText.split(".")
 
             if len(fsParts) == 1:
-                return datetime.fromisoformat(elementText)
+                return datetime.fromisoformat(elementText + timeZone)
 
             dateTimePart = fsParts[0]
             fracSecPart = fsParts[1]
 
             if len(fracSecPart) == 3 or len(fracSecPart) == 6:
-                return datetime.fromisoformat(elementText)
+                return datetime.fromisoformat(elementText + timeZone)
 
             elementText = f"{dateTimePart}.{fracSecPart.ljust(3, '0')}"
 
-            if timeZone is not None:
-                elementText = f"{elementText}-{timeZone}"
-
-            return datetime.fromisoformat(elementText)
+            return datetime.fromisoformat(elementText + timeZone)
         except:
             return defaultValue
 
